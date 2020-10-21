@@ -5,7 +5,10 @@ using Oculus;
 
 public class Keypad : MonoBehaviour
 {
+<<<<<<< Updated upstream
+=======
     public GameObject rightHand;
+>>>>>>> Stashed changes
     public GameObject crate;
     int buttonName;
     bool codeStatus = false;
@@ -30,8 +33,11 @@ public class Keypad : MonoBehaviour
             crate.transform.GetChild(0).GetComponent<BoxCollider>().enabled = true;
             crate.transform.GetChild(1).GetComponent<OVRGrabbable>().enabled = true;
             crate.transform.GetChild(1).GetComponent<BoxCollider>().enabled = true;
+<<<<<<< Updated upstream
+        } 
+=======
         }
-        
+>>>>>>> Stashed changes
     }
     
     private bool iscodeCorrect()
@@ -58,7 +64,11 @@ public class Keypad : MonoBehaviour
     }
 
     public int getButtonDown(){
+<<<<<<< Updated upstream
+        Ray ray = new Ray(transform.position, transform.forward);
+=======
         Ray ray = new Ray(rightHand.transform.position, rightHand.transform.forward);
+>>>>>>> Stashed changes
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, 0.05f)){
             if (hit.collider.gameObject.name == "Button0"){
