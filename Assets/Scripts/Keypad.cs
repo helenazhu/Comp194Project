@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Oculus;
+using UnityEngine.UI;
 
 public class Keypad : MonoBehaviour
 {
@@ -26,12 +26,11 @@ public class Keypad : MonoBehaviour
         }
         else{
             crate.GetComponent<OVRGrabbable>().enabled = false;
-            crate.transform.GetChild(0).GetComponent<OVRGrabbable>().enabled = true;
+            crate.transform.GetChild(0).gameObject.GetComponent<OVRGrabbable>().enabled = true;
             crate.transform.GetChild(0).GetComponent<BoxCollider>().enabled = true;
             crate.transform.GetChild(1).GetComponent<OVRGrabbable>().enabled = true;
             crate.transform.GetChild(1).GetComponent<BoxCollider>().enabled = true;
         }
-        
     }
     
     private bool iscodeCorrect()
@@ -48,17 +47,20 @@ public class Keypad : MonoBehaviour
         if(codeTemp.Length == 4){
             if(codeTemp.Equals(codeTrue)){
                 return true;
-            }else{
+            }
+            else{
                 codeTemp = "";
                 return false;
             }
-        }else{
+        }
+        else{
             return false;
         }
     }
 
     public int getButtonDown(){
-        Ray ray = new Ray(rightHand.transform.position, rightHand.transform.forward);
+
+        Ray ray = new Ray(transform.position, transform.forward);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, 0.05f)){
             if (hit.collider.gameObject.name == "Button0"){
@@ -114,5 +116,6 @@ public class Keypad : MonoBehaviour
         }
         return 11;
     }
-    }
+   
+}
 
