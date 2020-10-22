@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class Keypad : MonoBehaviour
 {
-    public GameObject rightHand;
     public GameObject crate;
     int buttonName;
     bool codeStatus = false;
